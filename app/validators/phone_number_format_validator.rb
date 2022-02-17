@@ -15,6 +15,6 @@ class PhoneNumberFormatValidator < ActiveModel::EachValidator
 
   def validate_each(record, attr_name, value)
     return if value.blank?
-    record.errors.add(attr_name, :phone_number_format, options) unless value =~ PHONE_NUMBER_REGEX
+    record.errors.add(attr_name, :phone_number_format, **options) unless value =~ PHONE_NUMBER_REGEX
   end
 end

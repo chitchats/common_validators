@@ -12,6 +12,6 @@ class SlugFormatValidator < ActiveModel::EachValidator
 
   def validate_each(record, attr_name, value)
     return if value.blank?
-    record.errors.add(attr_name, :slug_format, options) unless value =~ SLUG_REGEX
+    record.errors.add(attr_name, :slug_format, **options) unless value =~ SLUG_REGEX
   end
 end

@@ -14,6 +14,6 @@ class UrlFormatValidator < ActiveModel::EachValidator
     rescue URI::InvalidURIError
       false
     end
-    record.errors.add(attr_name, :url_format, options) unless valid
+    record.errors.add(attr_name, :url_format, **options) unless valid
   end
  end
