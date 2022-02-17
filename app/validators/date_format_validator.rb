@@ -13,7 +13,7 @@ class DateFormatValidator < ActiveModel::EachValidator
     begin
       Date.parse(value)
     rescue
-      record.errors.add(attr_name, :date_format, options)
+      record.errors.add(attr_name, :date_format, **options)
     end
   end
 end

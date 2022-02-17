@@ -37,7 +37,7 @@ class MoneyFormatValidator < ActiveModel::EachValidator
     # Regex seems a bit odd to use here (vs converting to BigDeciaml) but we need
     # to check for values that BigDecimal can't represent (e.g., "badvalue") so
     # for now this works.
-    record.errors.add(attr_name, :money_format, options) unless value =~ MONEY_REGEX
+    record.errors.add(attr_name, :money_format, **options) unless value =~ MONEY_REGEX
 
     # Check if value has cents but shouldn't
     if options[:exclude_cents] && value_has_cents?(value)
